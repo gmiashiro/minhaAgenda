@@ -1,0 +1,179 @@
+/* Variáveis da Paleta (Menta, Sálvia, Oliva) */
+:root {
+    --bg-mint: #F1F8F5;       /* Fundo geral bem claro */
+    --card-white: #FFFFFF;
+    --sage-light: #CDEadad;
+    --sage-accent: #8DA399;   /* Cor primária suave */
+    --olive-dark: #4A6D69;    /* Texto e títulos */
+    --olive-hover: #3A5552;
+    --highlight: #D4E6D8;     /* Hover nos dias */
+    --text-body: #555555;
+    --lines: #E0E5E0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-mint);
+    color: var(--text-body);
+    overflow-x: hidden;
+}
+
+/* Animações e Transições */
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Calendário Estilo */
+.calendar-card {
+    background: var(--card-white);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.app-title {
+    color: var(--olive-dark);
+    font-weight: 700;
+}
+
+.text-olive { color: var(--olive-dark); }
+.text-sage { color: var(--sage-accent); }
+
+/* Botões Customizados */
+.btn-icon {
+    background: transparent;
+    color: var(--sage-accent);
+    border: 1px solid var(--sage-light);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-icon:hover {
+    background: var(--sage-accent);
+    color: white;
+    transform: scale(1.1);
+}
+
+.btn-back {
+    background: white;
+    color: var(--olive-dark);
+    border: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.btn-back:hover {
+    transform: translateX(-3px);
+    color: var(--olive-hover);
+}
+
+/* Grid do Calendário */
+.weekdays-grid, .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 8px;
+}
+
+.weekdays-grid div {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--sage-accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.day-cell {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    color: var(--olive-dark);
+    position: relative;
+}
+
+.day-cell:hover {
+    background-color: var(--highlight);
+    transform: scale(1.05);
+}
+
+.day-cell.today {
+    background-color: var(--sage-accent);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(141, 163, 153, 0.4);
+}
+
+.day-cell.has-note::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--olive-dark);
+    border-radius: 50%;
+}
+
+.day-cell.empty {
+    cursor: default;
+}
+.day-cell.empty:hover {
+    background: none;
+    transform: none;
+}
+
+/* Estilo Folha de Caderno */
+.notebook-paper {
+    background-color: #fff;
+    border-radius: 4px;
+    position: relative;
+    min-height: 60vh;
+    padding: 0;
+    overflow: hidden;
+    /* Linha vermelha da margem */
+    border-left: 2px solid rgba(220, 150, 150, 0.3); 
+}
+
+.paper-lines {
+    width: 100%;
+    height: 60vh;
+    border: none;
+    outline: none;
+    padding: 30px 40px;
+    line-height: 2rem; /* Espaçamento da linha */
+    background-image: linear-gradient(transparent 95%, var(--lines) 95%);
+    background-size: 100% 2rem; /* Deve bater com o line-height */
+    background-attachment: local;
+    font-size: 1.1rem;
+    color: var(--olive-dark);
+    resize: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Responsividade */
+@media (max-width: 576px) {
+    .calendar-card {
+        padding: 1.5rem !important;
+    }
+    .day-cell {
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações do Dia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-soft">
+
+    <div class="container py-4 fade-in">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                
+                <div class="d-flex align-items-center mb-4">
+                    <a href="index.html" class="btn btn-back me-3">
+                        &larr; Voltar
+                    </a>
+                    <div>
+                        <span class="d-block text-muted small">Editando dia</span>
+                        <h2 id="noteDateDisplay" class="h4 text-olive m-0 fw-bold">...</h2>
+                    </div>
+                </div>
+
+                <div class="notebook-paper shadow-sm">
+                    <div class="paper-holes"></div>
+                    <textarea id="noteArea" class="paper-lines" placeholder="Escreva seus pensamentos, tarefas ou ideias aqui..."></textarea>
+                </div>
+
+                <div class="text-end mt-2">
+                    <small id="saveStatus" class="text-sage fade-text">Tudo salvo automaticamente ✨</small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
